@@ -78,11 +78,25 @@ describe("ToDo app", () => {
                 
             })
 
-            it("should ")
+    context("when add 3 items and tick checkbox -one of them", () => {
+
+            it("should number of left items should be only 2", () => {
+
+                addNewItem("aaa")
+                cy.get("input[class='toggle']").check()
+                addNewItem("bbb")
+                addNewItem("ccc")
+                cy.get("span[class='todo-count']").find("strong").should("contain.text", 2)
+
+                
+
+
+            })
+
+
+    })
 
 
     })
 })
-
- //  it("sholud change number of left items to 0 ")
 //it ("should change style of items to strikethough - line-through")
