@@ -89,8 +89,6 @@ describe("ToDo app", () => {
                 cy.get("span[class='todo-count']").find("strong").should("contain.text", 2)
 
                 
-
-
             })
 
 
@@ -99,4 +97,4 @@ describe("ToDo app", () => {
 
     })
 })
-//it ("should change style of items to strikethough - line-through")
+
