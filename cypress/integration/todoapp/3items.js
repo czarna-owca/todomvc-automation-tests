@@ -43,5 +43,15 @@ describe("when add 3 items and tick checkbox -one of them", () => {
             cy.get("input[class='toggle']").check().should("be.checked")
         })
     })
+    
+    context("when click on button - Clear completed", () => {
+        it("should delete first item aaa from all lists", () => {
+            cy.get("button[class='clear-completed']").click()
+            cy.get(".todo-list li").eq(0).should("contain.text", 'bbb')
+            cy.get(".todo-list li").eq(1).should("contain.text", 'ccc')
+            cy.get('aaa').should('not.exist')
+                      
+        })
 
+    })
 })
