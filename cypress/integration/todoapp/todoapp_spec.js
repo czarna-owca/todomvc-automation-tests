@@ -9,7 +9,6 @@ describe("ToDo app", () => {
 
     })
 
-
     context("when page initially loaded", () => {
 
         it("heder of the page should be visible and have proper name", () => {
@@ -75,21 +74,6 @@ describe("ToDo app", () => {
             cy.get("input[class='toggle']").check()
             cy.get("button[class='clear-completed']").should('have.attr', 'style', 'display: block;')
             cy.contains('Clear completed').should('be.visible')
-
-        })
-
-        context("when add 3 items and tick checkbox -one of them", () => {
-
-            it("should number of left items should be only 2", () => {
-
-                addNewItem("aaa")
-                cy.get("input[class='toggle']").check()
-                addNewItem("bbb")
-                addNewItem("ccc")
-                cy.get("span[class='todo-count']").find("strong").should("contain.text", 2)
-
-
-            })
 
         })
 
