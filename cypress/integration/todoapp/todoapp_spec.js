@@ -64,6 +64,7 @@ describe("ToDo app", () => {
             addNewItem("first")
 
             cy.get("input[class='toggle']").check()
+            cy.get("input[class='toggle']").check().should("be.checked")
             cy.get("span[class='todo-count']").find("strong").should("contain.text", 0)
         })
 

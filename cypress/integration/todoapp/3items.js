@@ -26,9 +26,13 @@ describe("when add 3 items and tick checkbox -one of them", () => {
     })
 
     context("when click on button - Completed ", () => {
-        it("should be marked first item-aaa ", () => {
+        it("should be visiable and marked only first item-aaa ", () => {
 
             cy.get('a').contains('Completed').click()
+            cy.get('secondItem').should('not.exist');
+            cy.get('thirdItem').should('not.exist');
+            cy.get(".todo-list li").eq(0).should("contain.text", 'aaa')
+            cy.get("input[class='toggle']").check().should("be.checked")
         })
     })
 
