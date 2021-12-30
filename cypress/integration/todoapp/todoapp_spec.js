@@ -78,5 +78,15 @@ describe("ToDo app", () => {
         })
 
     })
+
+    context("when double clik on added item", () => {
+        it("should edit item", () =>{
+            addNewItem("first")
+            cy.get(".todo-list li").dblclick().type("anotherItem").type("{enter}")
+            cy.get(".todo-list li").should('be.visible', 'anotherItem')           
+        })
+
+
+    })
 })
 
