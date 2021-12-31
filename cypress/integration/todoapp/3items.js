@@ -54,4 +54,13 @@ describe("when add 3 items and tick checkbox -one of them", () => {
         })
 
     })
+
+    context("when click on downward arrow next to 'what needs to be done?'", () =>{
+        it("should marked all chekboxes", () => {
+            cy.get("input[class='toggle-all']").click()
+            cy.get("input[class='toggle']").check().should("be.checked")
+             
+        })
+
+    })
 })
