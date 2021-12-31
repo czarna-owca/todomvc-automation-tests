@@ -62,5 +62,11 @@ describe("when add 3 items and tick checkbox -one of them", () => {
              
         })
 
+        it("should number of left items should be 0", () => {
+            cy.get("input[class='toggle-all']").click()
+            cy.get("span[class='todo-count']").find("strong").should("contain.text", 0)
+
+        })
+
     })
 })
