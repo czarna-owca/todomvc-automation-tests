@@ -16,6 +16,12 @@ describe(" 4 Test Suite", () => {
             expect(str).to.equal('Hello , Are you sure you want to confirm?')
 
         })
+
+        //Child Tabs 
+        cy.get('#opentab').invoke('removeAttr', 'target').click()
+        cy.url().should('include', 'rahulshettyacademy')
+        cy.go('back')
+        cy.url().should('include', 'rahulshettyacademy')
     })
 
 })
