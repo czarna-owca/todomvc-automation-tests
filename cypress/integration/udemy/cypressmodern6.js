@@ -1,6 +1,6 @@
 
-describe(" 5 Test Suite", () => {
-    it("5 case", () => {
+describe("6 Test Suite", () => {
+    it("6 case", () => {
 
         cy.visit("https://rahulshettyacademy.com/AutomationPractice/")
 
