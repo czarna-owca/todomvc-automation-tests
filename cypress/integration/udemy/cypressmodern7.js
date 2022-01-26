@@ -2,6 +2,7 @@
 import CartPage from '../pageObjects/CartPage'
 import HomePage from '../pageObjects/HomePage'
 import ProductPage from '../pageObjects/ProductPage'
+
 describe("7 Test Suite", () => {
     before(function () {
         cy.fixture('example').then(function (data) {
@@ -11,9 +12,10 @@ describe("7 Test Suite", () => {
     })
 
     it('7 case', function () {
-        const homePage=new HomePage()
-        const productPage=new ProductPage()
-        const cartPage=new CartPage()
+        Cypress.config('defaultCommandTimeout', 8000)
+        const homePage = new HomePage()
+        const productPage = new ProductPage()
+        const cartPage = new CartPage()
 
         cy.visit("https://rahulshettyacademy.com/angularpractice/")
 
@@ -24,14 +26,31 @@ describe("7 Test Suite", () => {
         homePage.getEditBox().should('have.attr', 'minlength', '2')
         homePage.getEntrepreneaur().should('be.disabled')
 
-        homePage.getShopTab().click()
         
+        homePage.getShopTab().click()
+
         this.data.productName.forEach(function (element) {
             cy.selectProduct(element)
         })
-       
+
         productPage.checkOutButton().click()
-        cartPage.checkOutSuccess().click()
+        cartPage.checkOutSuccess().click() //= cy.contains('Checkout').click()
+
+        cy.get('#country').type('India')
        
+        cy.get('.suggestions > ul > li > a').click()
+        cy.get('#checkbox2').click({ force: true })
+        cy.get('input[type="submit"]').click()
+        //cy.get('.alert').should('have.text','Success! Thank you! Your order will be delivered in next few weeks :-).')
+        cy.get('.alert').then(function(element)
+        {
+                const actualText = element.text()
+            expect(actualText.includes("Success")).to.be.true
+
+        })
+
     })
+        
+
 })
+
