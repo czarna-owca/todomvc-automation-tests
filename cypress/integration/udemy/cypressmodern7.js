@@ -1,3 +1,5 @@
+
+import HomePage from '../pageObjects/HomePage'
 describe("7 Test Suite", () => {
     before(function () {
         cy.fixture('example').then(function (data) {
@@ -7,6 +9,7 @@ describe("7 Test Suite", () => {
     })
 
     it('7 case', function () {
+        const homePage=new HomePage()
 
         cy.visit("https://rahulshettyacademy.com/angularpractice/")
 
