@@ -1,4 +1,5 @@
 
+import CartPage from '../pageObjects/CartPage'
 import HomePage from '../pageObjects/HomePage'
 import ProductPage from '../pageObjects/ProductPage'
 describe("7 Test Suite", () => {
@@ -12,6 +13,7 @@ describe("7 Test Suite", () => {
     it('7 case', function () {
         const homePage=new HomePage()
         const productPage=new ProductPage()
+        const cartPage=new CartPage()
 
         cy.visit("https://rahulshettyacademy.com/angularpractice/")
 
@@ -23,13 +25,13 @@ describe("7 Test Suite", () => {
         homePage.getEntrepreneaur().should('be.disabled')
 
         homePage.getShopTab().click()
-
+        
         this.data.productName.forEach(function (element) {
             cy.selectProduct(element)
         })
        
         productPage.checkOutButton().click()
-       // cy.get('#navbarResponsive > .navbar-nav > .nav-item > .nav-link').click()
-
+        cartPage.checkOutSuccess().click()
+       
     })
 })
