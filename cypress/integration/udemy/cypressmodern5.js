@@ -2,7 +2,8 @@
 describe(" 5 Test Suite", () => {
     it("5 case", () => {
 
-        cy.visit("https://rahulshettyacademy.com/AutomationPractice/")
+        //cy.visit("https://rahulshettyacademy.com/AutomationPractice/")
+        cy.visit(Cypress.env('url')+"/AutomationPractice/")
 
         cy.get('tr td:nth-child(2)').each(($el, index, $list) => {
 

@@ -1,7 +1,11 @@
 
-import CartPage from '../pageObjects/CartPage'
-import HomePage from '../pageObjects/HomePage'
-import ProductPage from '../pageObjects/ProductPage'
+
+//support/pageObjects/CartPage'
+import HomePage from '../../support/pageObjects/HomePage'
+//import HomePage from '../../support/pageObjects/HomePage'
+import ProductPage from '../../support/pageObjects/ProductPage'
+//import ProductPage from '../pageObjects/ProductPage'
+import CartPage from '../../support/pageObjects/CartPage'
 
 describe("7 Test Suite", () => {
     before(function () {
@@ -17,7 +21,8 @@ describe("7 Test Suite", () => {
         const productPage = new ProductPage()
         const cartPage = new CartPage()
 
-        cy.visit("https://rahulshettyacademy.com/angularpractice/")
+        //cy.visit("https://rahulshettyacademy.com/angularpractice/")
+        cy.visit(Cypress.env('url')+"/angularpractice/")
 
 
         homePage.getEditBox().type(this.data.name)

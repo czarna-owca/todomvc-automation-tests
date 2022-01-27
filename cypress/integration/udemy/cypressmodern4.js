@@ -2,7 +2,8 @@
 describe(" 4 Test Suite", () => {
     it("4 case", () => {
 
-        cy.visit("https://rahulshettyacademy.com/AutomationPractice/")
+        //cy.visit("https://rahulshettyacademy.com/AutomationPractice/")
+        cy.visit(Cypress.env('url')+"/AutomationPractice/")
 
         //windows alert
         cy.get('#alertbtn').click()

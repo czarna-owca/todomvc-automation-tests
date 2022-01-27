@@ -2,7 +2,9 @@
 describe("My First Test Suite", () => {
     it("my first case", () => {
 
-        cy.visit("https://rahulshettyacademy.com/seleniumPractise/#/")
+        //cy.visit("https://rahulshettyacademy.com/seleniumPractise/#/")
+        cy.visit(Cypress.env('url')+"/seleniumPractise/#/")
+        
         cy.get('.search-keyword').type('ca')
         cy.get('.product').should('have.length', 5)
         cy.get('.product:visible').should('have.length', 4)

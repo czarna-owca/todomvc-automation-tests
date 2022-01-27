@@ -2,7 +2,8 @@
 describe("6 Test Suite", () => {
     it("6 case", () => {
 
-        cy.visit("https://rahulshettyacademy.com/AutomationPractice/")
+        //cy.visit("https://rahulshettyacademy.com/AutomationPractice/")
+        cy.visit(Cypress.env('url')+"/AutomationPractice/")
 
         // cy.get('.mouse-hover-content').invoke('show')
         cy.contains('Reload').click({ force: true })
