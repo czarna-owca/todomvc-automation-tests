@@ -22,7 +22,7 @@ describe("7 Test Suite", () => {
         const cartPage = new CartPage()
 
         //cy.visit("https://rahulshettyacademy.com/angularpractice/")
-        cy.visit(Cypress.env('url')+"/angularpractice/")
+        cy.visit(Cypress.env('url') + "/angularpractice/")
 
 
         homePage.getEditBox().type(this.data.name)
@@ -39,29 +39,28 @@ describe("7 Test Suite", () => {
         })
 
         productPage.checkOutButton().click()
-    
-        var sum=0
+
+        var sum = 0
 
         cy.get('tr td:nth-child(4) strong').each(($el, index, $list) => {
-           
-            const amount= $el.text()
+
+            const amount = $el.text()
             var res = amount.split(" ")
             res = res[1].trim()
-            sum=Number(sum)+Number(res)
-                     
+            sum = Number(sum) + Number(res)
 
-        }).then(function(){
-        
-                cy.log(sum)
+
+        }).then(function () {
+
+            cy.log(sum)
         })
 
-        cy.get('h3 strong').then(function(element)
-        {
-            const amount= element.text()
+        cy.get('h3 strong').then(function (element) {
+            const amount = element.text()
             var res = amount.split(" ")
-           var total = res[1].trim()
-           
-           expect(Number(total)).to.equal(sum)
+            var total = res[1].trim()
+
+            expect(Number(total)).to.equal(sum)
         })
 
         cartPage.checkOutSuccess().click() //= cy.contains('Checkout').click()
@@ -74,7 +73,7 @@ describe("7 Test Suite", () => {
         //cy.get('.alert').should('have.text','Success! Thank you! Your order will be delivered in next few weeks :-).')
 
         cy.get('.alert').then(function (element) {
-            const actualText=element.text()
+            const actualText = element.text()
             expect(actualText.includes("Success")).to.be.true
         })
 
