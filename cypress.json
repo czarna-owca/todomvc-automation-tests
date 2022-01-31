@@ -6,5 +6,5 @@
         "url" : "https://rahulshettyacademy.com/"
 
     },
-    "testFiles": "**/*.feature"
+    "testFiles": ["**/*.js", "**/*.feature"]
 }
